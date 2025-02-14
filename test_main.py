@@ -1,7 +1,13 @@
 import pytest
+import sys
 from unittest.mock import AsyncMock, patch
-from app.services import create_book, get_book_by_id  # Example service functions
-from app.models import Book  # Example model
+
+# Ensure the 'app' module is in the Python path
+import os
+sys.path.insert(0, os.path.abspath(os.getcwd()))
+
+from app.services.book_service import create_book, get_book_by_id  # Example service functions
+from app.models.book_model import Book  # Example model
 
 @pytest.mark.asyncio
 async def test_create_book():
